@@ -1,6 +1,11 @@
 # NameSilo_Certbot-DNS-01
 Hook script helpers for obtaining [LetsEncrypt](https://letsencrypt.org/) certificates, using [Certbot](https://certbot.eff.org/) with [manual](https://certbot.eff.org/docs/using.html#manual) DNS-01 validation against [NameSilo](https://www.namesilo.com/) DNS.
 
+#### Note
+The certbot will request to LetsEncrypt to get _acme-challenge value, then use the hook.sh to add a txt record to Namesilo.  
+After the _acme-challenge validation from LetsEncrypt, it provides the certs.  
+Finally, the certbot calls cleanup.sh to delete the _acme-challenge record.
+
 #### Dependency
 Make sure that you have xmllint installed on your system. On Ubuntu:
 ```
